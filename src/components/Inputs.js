@@ -1,22 +1,12 @@
 import React, { Component } from 'react';
 import styles from '../../styles'
 
-import { Text, TextInput, View } from 'react-native';
+/* import { Text, TextInput, View } from 'react-native';
 
 export default class RoundedButtons extends Component {
     constructor(props) {
         super(props)
     }
-    
-
-
-    validateEmail = (email) => {
-        const emailSchema = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (emailSchema.test == false) {
-
-        }
-    }
-    
     render() {
         const { marginBottom } = this.props
         return (
@@ -34,4 +24,4 @@ export default class RoundedButtons extends Component {
 
         );
     }
-}
+} */
