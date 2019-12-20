@@ -15,6 +15,7 @@ export default class ModalMoreInformation extends Component {
     setModalVisible(visible) {
         this.setState({ modalVisible: visible });
     }
+    
     render() {
         return (
             <View style={{ marginTop: 22 }}>
