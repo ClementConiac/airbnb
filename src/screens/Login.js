@@ -2,41 +2,52 @@ import React, { Component } from 'react'
 import { View, Text, TextInput, Alert, TouchableOpacity } from 'react-native'
 import styles from '../../styles'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import Inputs from '../components/Inputs'
 
 
 
 export default class Login extends Component {
+    static navigationOptions = ({ navigation }) => {
+        return {
+            header: (
+                <View style={styles.forgotPasswordContainerLogin}>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Text style={styles.forgotPasswordIconLogin}>
+                            <Icon
+                                name="arrow-left"
+                                size={20}
+                                style={styles.buttonBackIconLogin}
+                            />
+                        </Text>
+                    </TouchableOpacity>
+
+                    <Text style={styles.forgotPasswordTextLogin}>Mot de passe oublié ?</Text>
+                </View>
+            )
+        }
+    };
     state = {
         inputEmail: '',
         inputPassword: '',
-        show: 0
+        secureTextEntry: true
+    }
+
+    toggleSecureTextEntry = () => {
+        this.setState({
+            secureTextEntry: !this.state.secureTextEntry
+        })
     }
     /* isEmailValid = (email) => {
         const re = /\S+@\S+\.\S+/;
         return re.test(email);
     } */
-    showButton = (inputEmail, inputPassword) => {
-        if (inputEmail === '' && inputPassword === '') {
-            this.setState({ show: 0 })
-        } else {
-            this.setState({ show: 1 })
-        }
-    }
+
     render() {
+        // Show n'a pas besoin de faire partie du state car il peut être finalement
+        // déduit de inputEmail et inputPassword
+        const show = this.state.inputEmail && this.state.inputPassword
         return (
             <View style={styles.containerLogin}>
-                <View style={styles.forgotPasswordContainerLogin}>
-                    <Text style={styles.forgotPasswordIconLogin}>
-                        <Icon
-                            name="arrow-left"
-                            size={20}
-                            style={styles.buttonBackIconLogin}
-                        />
-                    </Text>
 
-                    <Text style={styles.forgotPasswordTextLogin}>Mot de passe oublié ?</Text>
-                </View>
                 <View style={styles.connexionContainerLogin}>
                     <Text style={styles.connewionTitleLogin}>Connexion</Text>
                 </View>
@@ -58,8 +69,9 @@ export default class Login extends Component {
                     <TextInput
                         style={styles.textInputContainerLogin}
                         onChangeText={(text) => {
-                            this.setState({ inputEmail: text }, this.showButton(this.state.inputEmail, this.state.inputPassword)
-                            ) /* ,console.log("email:", this.inputEmail) */
+                            this.setState({
+                                inputEmail: text,
+                            })
                         }}
                         value={this.state.inputEmail}
                     />
@@ -68,21 +80,25 @@ export default class Login extends Component {
                 <View style={styles.containerInputLogin}>
                     <View style={styles.containerInputTitleLogin}>
                         <Text style={styles.inputTitleLogin}>MOT DE PASSE</Text>
-                        <Text style={styles.inputTitleLogin}>Afficher</Text>
+                        <TouchableOpacity onPress={this.toggleSecureTextEntry}>
+                            <Text style={styles.inputTitleLogin}>Afficher</Text>
+                        </TouchableOpacity>
                     </View>
 
                     <TextInput
                         style={styles.textInputContainerLogin}
                         onChangeText={(text) => {
-                            this.setState({ inputPassword: text }, this.showButton(this.state.inputEmail, this.state.inputPassword)
-                            ) /* ,console.log("psw:", this.inputPassword) */
+                            this.setState({
+                                inputPassword: text,
+                            })
                         }}
                         value={this.state.inputPassword}
+                        secureTextEntry={this.state.secureTextEntry}
                     />
                 </View>
 
 
-                <View style={styles.roundedOpacityLogin} opacity={this.state.show}>
+                <View style={styles.roundedOpacityLogin} opacity={show ? 1 : 0}>
                     <TouchableOpacity style={styles.roundedOpacityButtonLogin}>
                         <Text style={styles.roundedOpacityButtonContentLogin}>
                             <Icon
