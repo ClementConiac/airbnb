@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Image, TouchableOpacity, Modal, TouchableHighlight, Alert } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import styles from '../../styles'
 import RoundedButtons from '../components/RoundedButtons'
@@ -7,13 +7,21 @@ import ModalMoreInformation from '../components/Modals'
 
 
 export default class LoginScreen extends Component {
+    static navigationOptions = ({ navigation }) => {
+        return {
+            header: (
+                <View style={styles.connexionNavLoginScreen}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                        <Text style={styles.connexionNavTextLoginScreen}>Connexion</Text>
+                    </TouchableOpacity>
+                </View>
+            )
+        }
+    };
     render() {
         return (
             <View style={styles.containerLoginScreen}>
 
-                <View style={styles.connexionNavLoginScreen}>
-                    <Text style={styles.connexionNavTextLoginScreen}>Connexion</Text>
-                </View>
                 <View style={styles.imageContainerLoginScreen}>
                     <Image
                         style={styles.imageLoginScreen}

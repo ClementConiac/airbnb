@@ -10,9 +10,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#02656B'
     },
     connexionNavLoginScreen: {
-        flex: 0.5,
+        backgroundColor: '#02656B',
         alignItems: 'flex-end',
-        justifyContent: 'center'
+        justifyContent: 'center',
+
     },
     connexionNavTextLoginScreen: {
         color: 'white',
@@ -91,11 +92,11 @@ const styles = StyleSheet.create({
     },
 
     forgotPasswordContainerLogin: {
+        height: 30,
+        backgroundColor: '#02656B',
         flexDirection: 'row',
-        flex: 0.1,
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginTop: 20,
     },
     forgotPasswordIconLogin: {
         color: 'white',
