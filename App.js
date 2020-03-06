@@ -3,11 +3,14 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import LoggedOut from "./src/screens/LoggedOut"
 import Login from "./src/screens/Login"
+import ExploreContainer from "./src/screens/ExploreContainer"
+
 
 const MainStackNavigator = createStackNavigator({
 
   LoggedOut: { screen: LoggedOut },
   Login: { screen: Login },
+  ExploreContainer: { screen: ExploreContainer },
 
 },
   {

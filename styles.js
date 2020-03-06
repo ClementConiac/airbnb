@@ -155,6 +155,53 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         paddingLeft: 15
     },
+    containerExploreScreen: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        marginBottom: 25,
+    },
+    imageExploreScreen: {
+        width: 100,
+        height: 100,
+    },
+    titleContainer: {
+        fontSize: 20,
+        marginBottom: 20,
+    },
+    sellAllContainer: {
+        fontSize: 15,
+    },
+    containerContainer: {
+        marginHorizontal: 10,
+    },
+    experiencesContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    experiencesCard: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        borderRadius: 10,
+    },
+    experienceCardType: {
+        marginTop: 5,
+        fontSize: 10,
+    },
+    experienceCardTitle: {
+        fontWeight: "bold",
+        fontSize: 13,
+    },
+    experienceCardPrice: {
+        fontSize: 13,
+        marginVertical: 3,
+    },
+    starsIconContainer: {
+        display: 'flex',
+        flexDirection: "row",
+        alignItems: "center",
+    },
+    starsIconText: {
+        marginLeft: 5,
+    }
 });
-
 export default styles;

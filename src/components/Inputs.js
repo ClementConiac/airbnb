@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styles from '../../styles'
-
-/* import { Text, TextInput, View } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
 
 export default class RoundedButtons extends Component {
     constructor(props) {
@@ -18,10 +17,9 @@ export default class RoundedButtons extends Component {
 
                 <TextInput
                     style={[styles.textInputContainerLogin, , { marginBottom }]}
-                    onChangeText={text => console.log(text)}
                 />
             </View>
 
         );
     }
-} */
+}

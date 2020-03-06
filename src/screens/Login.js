@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, TextInput, Alert, TouchableOpacity } from 'react-native'
 import styles from '../../styles'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import Inputs from '../components/Inputs'
 
 
 
@@ -42,6 +43,7 @@ export default class Login extends Component {
     } */
 
     render() {
+        const { navigation } = this.props
         // Show n'a pas besoin de faire partie du state car il peut être finalement
         // déduit de inputEmail et inputPassword
         const show = this.state.inputEmail && this.state.inputPassword
@@ -51,15 +53,32 @@ export default class Login extends Component {
                 <View style={styles.connexionContainerLogin}>
                     <Text style={styles.connewionTitleLogin}>Connexion</Text>
                 </View>
-                {/*  <Inputs
+              {/*   <Inputs
+                    label={'Email'}
+                    inputType={'email'}
                     content={'ADRESSE E-MAIL'}
                     bisContent={''}
                     marginBottom={15}
+                    onChangeText={(text) => {
+                        this.setState({
+                            inputEmail: text,
+                        })
+                    }}
+                    value={this.state.inputEmail}
                 />
                 <Inputs
+                    label={'Password'}
+                    inputType={'password'}
                     content={'MOT DE PASSE'}
                     bisContent={'Afficher'}
-                /> */}
+                    onChangeText={(text) => {
+                        this.setState({
+                            inputPassword: text,
+                        })
+                    }}
+                    value={this.state.inputPassword}
+                    secureTextEntry={this.state.secureTextEntry}
+                />  */}
                 <View style={styles.containerInputLogin}>
                     <View style={styles.containerInputTitleLogin}>
                         <Text style={styles.inputTitleLogin}>ADRESSE E-MAIL</Text>
@@ -95,11 +114,11 @@ export default class Login extends Component {
                         value={this.state.inputPassword}
                         secureTextEntry={this.state.secureTextEntry}
                     />
-                </View>
+                </View> 
 
 
                 <View style={styles.roundedOpacityLogin} opacity={show ? 1 : 0}>
-                    <TouchableOpacity style={styles.roundedOpacityButtonLogin}>
+                    <TouchableOpacity style={styles.roundedOpacityButtonLogin} onPress={() => navigation.navigate('ExploreContainer')}>
                         <Text style={styles.roundedOpacityButtonContentLogin}>
                             <Icon
                                 name="chevron-right"
